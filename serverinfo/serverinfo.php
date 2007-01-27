@@ -46,7 +46,7 @@ add_action('admin_head', 'serverinfo_head');
 function serverinfo_head() {
 	wp_register_script('wp-serverinfo', '/wp-content/plugins/serverinfo/serverinfo-js.php', false, '1.00');
 	wp_print_scripts('wp-serverinfo');
-	echo '<link rel="stylesheet" href="'.get_settings('siteurl').'/wp-content/plugins/serverinfo/serverinfo-css.css" type="text/css" media="screen" />'."\n";
+	echo '<link rel="stylesheet" href="'.get_option('siteurl').'/wp-content/plugins/serverinfo/serverinfo-css.css" type="text/css" media="screen" />'."\n";
 }
 
 
