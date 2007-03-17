@@ -1,0 +1,31 @@
+/*
++----------------------------------------------------------------+
+|																							|
+|	WordPress 2.1 Plugin: WP-ServerInfo 1.00								|
+|	Copyright (c) 2007 Lester "GaMerZ" Chan									|
+|																							|
+|	File Written By:																	|
+|	- Lester "GaMerZ" Chan															|
+|	- http://www.lesterchan.net													|
+|																							|
+|	File Information:																	|
+|	- Server Info CSS File															|
+|	- wp-content/plugins/serverinfo/serverinfo-css.css						|
+|																							|
++----------------------------------------------------------------+
+*/
+
+
+TR.v TD, TR.Out {
+	background-color: #F1F1F1;
+}
+TR.Over {
+	background: #e5f3ff;
+}
+TR.h TH {
+	font-weight: bold;
+	background: #DFDFDF;
+}
+#MYSQLinfo, #PHPinfo {
+	display: none;
+}
