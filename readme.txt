@@ -1,7 +1,7 @@
 === WP-ServerInfo ===
 Contributors: GamerZ
 Donate link: http://www.lesterchan.net/wordpress
-Tags: phpinfo, mysql, php, server, serverinfo, info
+Tags: phpinfo, mysql, php, server, serverinfo, info, information
 Requires at least: 2.1.0
 Stable tag: 1.00
 
