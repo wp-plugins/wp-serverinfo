@@ -219,7 +219,7 @@ function get_generalinfo() {
 			</tr>
 			<tr>
 				<td><?php _e('Server Date/Time', 'wp-serverinfo'); ?></td>
-				<td><?php echo date('l, jS F Y, H:i'); ?></td>
+				<td><?php echo date(sprintf(__('%s @ %s', 'wp-serverinfo'), get_option('date_format'), get_option('time_format'))); ?></td>
 				<td><?php _e('PHP Max Script Execute Time', 'wp-serverinfo'); ?></td>
 				<td><?php echo $max_execute; ?>s</td>
 			</tr>
