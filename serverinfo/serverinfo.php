@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WP-ServerInfo
-Plugin URI: http://www.lesterchan.net/portfolio/programming.php
+Plugin URI: http://lesterchan.net/portfolio/programming.php
 Description: Display your host's server PHP and MYSQL information (integrated into WordPress Admin Style) on your WordPress dashboard.
 Version: 1.00
 Author: Lester 'GaMerZ' Chan
-Author URI: http://www.lesterchan.net
+Author URI: http://lesterchan.net
 */
 
 
