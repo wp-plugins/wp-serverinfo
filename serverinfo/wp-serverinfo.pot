@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-ServerInfo\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-08-29 00:57+0800\n"
+"PO-Revision-Date: 2007-09-19 00:21+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <gamerz84@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -14,143 +14,143 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: serverinfo.php:39
+#: serverinfo.php:42
 msgid "WP-ServerInfo"
 msgstr ""
 
-#: serverinfo.php:74
-#: serverinfo.php:75
 #: serverinfo.php:77
 #: serverinfo.php:78
-#: serverinfo.php:84
-#: serverinfo.php:90
-#: serverinfo.php:114
-#: serverinfo.php:120
-#: serverinfo.php:125
-#: serverinfo.php:131
-#: serverinfo.php:148
-#: serverinfo.php:332
+#: serverinfo.php:80
+#: serverinfo.php:81
+#: serverinfo.php:87
+#: serverinfo.php:93
+#: serverinfo.php:117
+#: serverinfo.php:123
+#: serverinfo.php:128
+#: serverinfo.php:134
+#: serverinfo.php:151
+#: serverinfo.php:335
 msgid "N/A"
 msgstr ""
 
-#: serverinfo.php:94
-#: serverinfo.php:100
-#: serverinfo.php:106
+#: serverinfo.php:97
+#: serverinfo.php:103
+#: serverinfo.php:109
 msgid "On"
 msgstr ""
 
-#: serverinfo.php:96
-#: serverinfo.php:102
-#: serverinfo.php:108
+#: serverinfo.php:99
+#: serverinfo.php:105
+#: serverinfo.php:111
 msgid "Off"
 msgstr ""
 
-#: serverinfo.php:152
+#: serverinfo.php:155
 msgid "General Overview"
 msgstr ""
 
-#: serverinfo.php:155
-#: serverinfo.php:157
-#: serverinfo.php:275
+#: serverinfo.php:158
+#: serverinfo.php:160
+#: serverinfo.php:278
 msgid "Variable Name"
 msgstr ""
 
-#: serverinfo.php:156
-#: serverinfo.php:158
-#: serverinfo.php:275
+#: serverinfo.php:159
+#: serverinfo.php:161
+#: serverinfo.php:278
 msgid "Value"
 msgstr ""
 
-#: serverinfo.php:161
+#: serverinfo.php:164
 msgid "OS"
 msgstr ""
 
-#: serverinfo.php:163
+#: serverinfo.php:166
 msgid "Database Data Disk Usage"
 msgstr ""
 
-#: serverinfo.php:167
+#: serverinfo.php:170
 msgid "Server"
 msgstr ""
 
-#: serverinfo.php:169
+#: serverinfo.php:172
 msgid "Database Index Disk Usage"
 msgstr ""
 
-#: serverinfo.php:175
+#: serverinfo.php:178
 msgid "MYSQL Maximum Packet Size"
 msgstr ""
 
-#: serverinfo.php:181
+#: serverinfo.php:184
 msgid "MYSQL Maximum No. Connection"
 msgstr ""
 
-#: serverinfo.php:187
+#: serverinfo.php:190
 msgid "PHP Short Tag"
 msgstr ""
 
-#: serverinfo.php:191
+#: serverinfo.php:194
 msgid "Server Hostname"
 msgstr ""
 
-#: serverinfo.php:193
+#: serverinfo.php:196
 msgid "PHP Safe Mode"
 msgstr ""
 
-#: serverinfo.php:197
+#: serverinfo.php:200
 msgid "Server IP:Port"
 msgstr ""
 
-#: serverinfo.php:199
+#: serverinfo.php:202
 msgid "PHP Magic Quotes GPC"
 msgstr ""
 
-#: serverinfo.php:203
+#: serverinfo.php:206
 msgid "Server Document Root"
 msgstr ""
 
-#: serverinfo.php:205
+#: serverinfo.php:208
 msgid "PHP Memory Limit"
 msgstr ""
 
-#: serverinfo.php:209
+#: serverinfo.php:212
 msgid "Server Admin"
 msgstr ""
 
-#: serverinfo.php:211
+#: serverinfo.php:214
 msgid "PHP Max Upload Size"
 msgstr ""
 
-#: serverinfo.php:215
+#: serverinfo.php:218
 msgid "Server Load"
 msgstr ""
 
-#: serverinfo.php:217
+#: serverinfo.php:220
 msgid "PHP Max Post Size"
 msgstr ""
 
-#: serverinfo.php:221
+#: serverinfo.php:224
 msgid "Server Date/Time"
 msgstr ""
 
-#: serverinfo.php:222
+#: serverinfo.php:225
 #, php-format
 msgid "%s @ %s"
 msgstr ""
 
-#: serverinfo.php:223
+#: serverinfo.php:226
 msgid "PHP Max Script Execute Time"
 msgstr ""
 
-#: serverinfo.php:289
+#: serverinfo.php:292
 msgid "Display General Overview"
 msgstr ""
 
-#: serverinfo.php:289
+#: serverinfo.php:292
 msgid "Display PHP Information"
 msgstr ""
 
-#: serverinfo.php:289
+#: serverinfo.php:292
 msgid "Display MYSQL Information"
 msgstr ""
 
