@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-ServerInfo\n"
+"Project-Id-Version: WP-ServerInfo 1.30\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2007-09-19 00:21+0800\n"
+"PO-Revision-Date: 2007-10-21 19:36+0800\n"
 "Last-Translator: Lester 'GaMerZ' Chan <gamerz84@hotmail.com>\n"
 "Language-Team: Lester Chan <gamerz84@hotmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -14,143 +14,143 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: serverinfo.php:42
+#: wp-serverinfo.php:42
 msgid "WP-ServerInfo"
 msgstr ""
 
-#: serverinfo.php:77
-#: serverinfo.php:78
-#: serverinfo.php:80
-#: serverinfo.php:81
-#: serverinfo.php:87
-#: serverinfo.php:93
-#: serverinfo.php:117
-#: serverinfo.php:123
-#: serverinfo.php:128
-#: serverinfo.php:134
-#: serverinfo.php:151
-#: serverinfo.php:335
+#: wp-serverinfo.php:77
+#: wp-serverinfo.php:78
+#: wp-serverinfo.php:80
+#: wp-serverinfo.php:81
+#: wp-serverinfo.php:87
+#: wp-serverinfo.php:93
+#: wp-serverinfo.php:117
+#: wp-serverinfo.php:123
+#: wp-serverinfo.php:128
+#: wp-serverinfo.php:134
+#: wp-serverinfo.php:151
+#: wp-serverinfo.php:335
 msgid "N/A"
 msgstr ""
 
-#: serverinfo.php:97
-#: serverinfo.php:103
-#: serverinfo.php:109
+#: wp-serverinfo.php:97
+#: wp-serverinfo.php:103
+#: wp-serverinfo.php:109
 msgid "On"
 msgstr ""
 
-#: serverinfo.php:99
-#: serverinfo.php:105
-#: serverinfo.php:111
+#: wp-serverinfo.php:99
+#: wp-serverinfo.php:105
+#: wp-serverinfo.php:111
 msgid "Off"
 msgstr ""
 
-#: serverinfo.php:155
+#: wp-serverinfo.php:155
 msgid "General Overview"
 msgstr ""
 
-#: serverinfo.php:158
-#: serverinfo.php:160
-#: serverinfo.php:278
+#: wp-serverinfo.php:158
+#: wp-serverinfo.php:160
+#: wp-serverinfo.php:278
 msgid "Variable Name"
 msgstr ""
 
-#: serverinfo.php:159
-#: serverinfo.php:161
-#: serverinfo.php:278
+#: wp-serverinfo.php:159
+#: wp-serverinfo.php:161
+#: wp-serverinfo.php:278
 msgid "Value"
 msgstr ""
 
-#: serverinfo.php:164
+#: wp-serverinfo.php:164
 msgid "OS"
 msgstr ""
 
-#: serverinfo.php:166
+#: wp-serverinfo.php:166
 msgid "Database Data Disk Usage"
 msgstr ""
 
-#: serverinfo.php:170
+#: wp-serverinfo.php:170
 msgid "Server"
 msgstr ""
 
-#: serverinfo.php:172
+#: wp-serverinfo.php:172
 msgid "Database Index Disk Usage"
 msgstr ""
 
-#: serverinfo.php:178
+#: wp-serverinfo.php:178
 msgid "MYSQL Maximum Packet Size"
 msgstr ""
 
-#: serverinfo.php:184
+#: wp-serverinfo.php:184
 msgid "MYSQL Maximum No. Connection"
 msgstr ""
 
-#: serverinfo.php:190
+#: wp-serverinfo.php:190
 msgid "PHP Short Tag"
 msgstr ""
 
-#: serverinfo.php:194
+#: wp-serverinfo.php:194
 msgid "Server Hostname"
 msgstr ""
 
-#: serverinfo.php:196
+#: wp-serverinfo.php:196
 msgid "PHP Safe Mode"
 msgstr ""
 
-#: serverinfo.php:200
+#: wp-serverinfo.php:200
 msgid "Server IP:Port"
 msgstr ""
 
-#: serverinfo.php:202
+#: wp-serverinfo.php:202
 msgid "PHP Magic Quotes GPC"
 msgstr ""
 
-#: serverinfo.php:206
+#: wp-serverinfo.php:206
 msgid "Server Document Root"
 msgstr ""
 
-#: serverinfo.php:208
+#: wp-serverinfo.php:208
 msgid "PHP Memory Limit"
 msgstr ""
 
-#: serverinfo.php:212
+#: wp-serverinfo.php:212
 msgid "Server Admin"
 msgstr ""
 
-#: serverinfo.php:214
+#: wp-serverinfo.php:214
 msgid "PHP Max Upload Size"
 msgstr ""
 
-#: serverinfo.php:218
+#: wp-serverinfo.php:218
 msgid "Server Load"
 msgstr ""
 
-#: serverinfo.php:220
+#: wp-serverinfo.php:220
 msgid "PHP Max Post Size"
 msgstr ""
 
-#: serverinfo.php:224
+#: wp-serverinfo.php:224
 msgid "Server Date/Time"
 msgstr ""
 
-#: serverinfo.php:225
+#: wp-serverinfo.php:225
 #, php-format
 msgid "%s @ %s"
 msgstr ""
 
-#: serverinfo.php:226
+#: wp-serverinfo.php:226
 msgid "PHP Max Script Execute Time"
 msgstr ""
 
-#: serverinfo.php:292
+#: wp-serverinfo.php:292
 msgid "Display General Overview"
 msgstr ""
 
-#: serverinfo.php:292
+#: wp-serverinfo.php:292
 msgid "Display PHP Information"
 msgstr ""
 
-#: serverinfo.php:292
+#: wp-serverinfo.php:292
 msgid "Display MYSQL Information"
 msgstr ""
 

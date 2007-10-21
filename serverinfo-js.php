@@ -2,7 +2,7 @@
 /*
 +----------------------------------------------------------------+
 |																							|
-|	WordPress 2.1 Plugin: WP-ServerInfo 1.00								|
+|	WordPress 2.1 Plugin: WP-ServerInfo 1.30								|
 |	Copyright (c) 2007 Lester "GaMerZ" Chan									|
 |																							|
 |	File Written By:																	|
@@ -11,7 +11,7 @@
 |																							|
 |	File Information:																	|
 |	- Server Info JavaScript File													|
-|	- wp-content/plugins/serverinfo/serverinfo-js.php						|
+|	- wp-content/plugins/wp-serverinfo/serverinfo-js.php					|
 |																							|
 +----------------------------------------------------------------+
 */

@@ -3,7 +3,7 @@
 Plugin Name: WP-ServerInfo
 Plugin URI: http://lesterchan.net/portfolio/programming.php
 Description: Display your host's server PHP and MYSQL information (integrated into WordPress Admin Style) on your WordPress dashboard.
-Version: 1.00
+Version: 1.30
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
 */
@@ -31,7 +31,7 @@ Author URI: http://lesterchan.net
 ### Create Text Domain For Translations
 add_action('init', 'serverinfo_textdomain');
 function serverinfo_textdomain() {
-	load_plugin_textdomain('wp-serverinfo', 'wp-content/plugins/serverinfo');
+	load_plugin_textdomain('wp-serverinfo', 'wp-content/plugins/wp-serverinfo');
 }
 
 
@@ -39,7 +39,7 @@ function serverinfo_textdomain() {
 add_action('admin_menu', 'serverinfo_menu');
 function serverinfo_menu() {
 	if (function_exists('add_submenu_page')) {
-		add_submenu_page('index.php',  __('WP-ServerInfo', 'wp-serverinfo'),  __('WP-ServerInfo', 'wp-serverinfo'), 1, 'serverinfo/serverinfo.php', 'display_serverinfo');
+		add_submenu_page('index.php',  __('WP-ServerInfo', 'wp-serverinfo'),  __('WP-ServerInfo', 'wp-serverinfo'), 1, 'wp-serverinfo/wp-serverinfo.php', 'display_serverinfo');
 	}
 }
 
@@ -47,9 +47,9 @@ function serverinfo_menu() {
 ### Function: ServerInfo Header
 add_action('admin_head', 'serverinfo_head');
 function serverinfo_head() {
-	wp_register_script('wp-serverinfo', '/wp-content/plugins/serverinfo/serverinfo-js.php', false, '1.00');
+	wp_register_script('wp-serverinfo', '/wp-content/plugins/wp-serverinfo/serverinfo-js.php', false, '1.30');
 	wp_print_scripts('wp-serverinfo');
-	echo '<link rel="stylesheet" href="'.get_option('siteurl').'/wp-content/plugins/serverinfo/serverinfo-css.css" type="text/css" media="screen" />'."\n";
+	echo '<link rel="stylesheet" href="'.get_option('siteurl').'/wp-content/plugins/wp-serverinfo/serverinfo-css.css" type="text/css" media="screen" />'."\n";
 }
 
 
