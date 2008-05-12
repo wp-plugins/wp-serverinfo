@@ -2,8 +2,8 @@
 Contributors: GamerZ
 Donate link: http://lesterchan.net/wordpress
 Tags: phpinfo, mysql, php, server, serverinfo, info, information
-Requires at least: 2.1.0
-Stable tag: 1.00
+Requires at least: 2.5.0
+Stable tag: 1.30
 
 Display your host's server PHP and MYSQL information (integrated into WordPress Admin Style) on your WordPress dashboard.
 == Description ==
