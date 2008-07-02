@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP-ServerInfo 1.30\n"
+"Project-Id-Version: WP-ServerInfo 1.31\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-13 00:39+0800\n"
-"PO-Revision-Date: 2008-05-13 00:39+0800\n"
+"POT-Creation-Date: 2008-07-03 00:45+0800\n"
+"PO-Revision-Date: 2008-07-03 00:45+0800\n"
 "Last-Translator: Lester Chan <lesterchan@gmail.com>\n"
 "Language-Team: Lester Chan <lesterchan@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -15,211 +15,211 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wp-serverinfo.php:42
+#: wp-serverinfo.php:61
 msgid "WP-ServerInfo"
 msgstr ""
 
-#: wp-serverinfo.php:70
+#: wp-serverinfo.php:89
 msgid "General Overview"
 msgstr ""
 
-#: wp-serverinfo.php:75
-#: wp-serverinfo.php:77
-#: wp-serverinfo.php:201
+#: wp-serverinfo.php:94
+#: wp-serverinfo.php:96
+#: wp-serverinfo.php:220
 msgid "Variable Name"
 msgstr ""
 
-#: wp-serverinfo.php:76
-#: wp-serverinfo.php:78
-#: wp-serverinfo.php:201
+#: wp-serverinfo.php:95
+#: wp-serverinfo.php:97
+#: wp-serverinfo.php:220
 msgid "Value"
 msgstr ""
 
-#: wp-serverinfo.php:83
-#: wp-serverinfo.php:482
+#: wp-serverinfo.php:102
+#: wp-serverinfo.php:501
 msgid "OS"
 msgstr ""
 
-#: wp-serverinfo.php:85
+#: wp-serverinfo.php:104
 msgid "Database Data Disk Usage"
 msgstr ""
 
-#: wp-serverinfo.php:89
-#: wp-serverinfo.php:483
+#: wp-serverinfo.php:108
+#: wp-serverinfo.php:502
 msgid "Server"
 msgstr ""
 
-#: wp-serverinfo.php:91
+#: wp-serverinfo.php:110
 msgid "Database Index Disk Usage"
 msgstr ""
 
-#: wp-serverinfo.php:97
+#: wp-serverinfo.php:116
 msgid "MYSQL Maximum Packet Size"
 msgstr ""
 
-#: wp-serverinfo.php:103
+#: wp-serverinfo.php:122
 msgid "MYSQL Maximum No. Connection"
 msgstr ""
 
-#: wp-serverinfo.php:109
+#: wp-serverinfo.php:128
 msgid "PHP Short Tag"
 msgstr ""
 
-#: wp-serverinfo.php:113
+#: wp-serverinfo.php:132
 msgid "Server Hostname"
 msgstr ""
 
-#: wp-serverinfo.php:115
+#: wp-serverinfo.php:134
 msgid "PHP Safe Mode"
 msgstr ""
 
-#: wp-serverinfo.php:119
+#: wp-serverinfo.php:138
 msgid "Server IP:Port"
 msgstr ""
 
-#: wp-serverinfo.php:121
+#: wp-serverinfo.php:140
 msgid "PHP Magic Quotes GPC"
 msgstr ""
 
-#: wp-serverinfo.php:125
+#: wp-serverinfo.php:144
 msgid "Server Document Root"
 msgstr ""
 
-#: wp-serverinfo.php:127
+#: wp-serverinfo.php:146
 msgid "PHP Memory Limit"
 msgstr ""
 
-#: wp-serverinfo.php:131
+#: wp-serverinfo.php:150
 msgid "Server Admin"
 msgstr ""
 
-#: wp-serverinfo.php:133
+#: wp-serverinfo.php:152
 msgid "PHP Max Upload Size"
 msgstr ""
 
-#: wp-serverinfo.php:137
+#: wp-serverinfo.php:156
 msgid "Server Load"
 msgstr ""
 
-#: wp-serverinfo.php:139
+#: wp-serverinfo.php:158
 msgid "PHP Max Post Size"
 msgstr ""
 
-#: wp-serverinfo.php:143
+#: wp-serverinfo.php:162
 msgid "Server Date/Time"
 msgstr ""
 
-#: wp-serverinfo.php:144
+#: wp-serverinfo.php:163
 #, php-format
 msgid "%s @ %s"
 msgstr ""
 
-#: wp-serverinfo.php:145
+#: wp-serverinfo.php:164
 msgid "PHP Max Script Execute Time"
 msgstr ""
 
-#: wp-serverinfo.php:215
+#: wp-serverinfo.php:234
 msgid "Display General Overview"
 msgstr ""
 
-#: wp-serverinfo.php:215
+#: wp-serverinfo.php:234
 msgid "Display PHP Information"
 msgstr ""
 
-#: wp-serverinfo.php:215
+#: wp-serverinfo.php:234
 msgid "Display MYSQL Information"
 msgstr ""
 
-#: wp-serverinfo.php:225
+#: wp-serverinfo.php:244
 msgid "TiB"
 msgstr ""
 
-#: wp-serverinfo.php:227
+#: wp-serverinfo.php:246
 msgid "GiB"
 msgstr ""
 
-#: wp-serverinfo.php:229
+#: wp-serverinfo.php:248
 msgid "MiB"
 msgstr ""
 
-#: wp-serverinfo.php:231
+#: wp-serverinfo.php:250
 msgid "KiB"
 msgstr ""
 
-#: wp-serverinfo.php:233
+#: wp-serverinfo.php:252
 msgid "bytes"
 msgstr ""
 
-#: wp-serverinfo.php:235
+#: wp-serverinfo.php:254
 msgid "unknown"
 msgstr ""
 
-#: wp-serverinfo.php:245
-#: wp-serverinfo.php:258
-#: wp-serverinfo.php:271
+#: wp-serverinfo.php:264
+#: wp-serverinfo.php:277
+#: wp-serverinfo.php:290
 msgid "On"
 msgstr ""
 
-#: wp-serverinfo.php:247
-#: wp-serverinfo.php:260
-#: wp-serverinfo.php:273
+#: wp-serverinfo.php:266
+#: wp-serverinfo.php:279
+#: wp-serverinfo.php:292
 msgid "Off"
 msgstr ""
 
-#: wp-serverinfo.php:286
-#: wp-serverinfo.php:299
-#: wp-serverinfo.php:312
-#: wp-serverinfo.php:325
-#: wp-serverinfo.php:350
-#: wp-serverinfo.php:366
-#: wp-serverinfo.php:380
-#: wp-serverinfo.php:394
-#: wp-serverinfo.php:418
-#: wp-serverinfo.php:444
+#: wp-serverinfo.php:305
+#: wp-serverinfo.php:318
+#: wp-serverinfo.php:331
+#: wp-serverinfo.php:344
+#: wp-serverinfo.php:369
+#: wp-serverinfo.php:385
+#: wp-serverinfo.php:399
+#: wp-serverinfo.php:413
+#: wp-serverinfo.php:437
+#: wp-serverinfo.php:463
 msgid "N/A"
 msgstr ""
 
-#: wp-serverinfo.php:455
+#: wp-serverinfo.php:474
 msgid "Server Information"
 msgstr ""
 
-#: wp-serverinfo.php:484
+#: wp-serverinfo.php:503
 msgid "Hostname"
 msgstr ""
 
-#: wp-serverinfo.php:485
+#: wp-serverinfo.php:504
 msgid "IP:Port"
 msgstr ""
 
-#: wp-serverinfo.php:486
+#: wp-serverinfo.php:505
 msgid "Document Root"
 msgstr ""
 
-#: wp-serverinfo.php:492
+#: wp-serverinfo.php:511
 msgid "Magic Quotes GPC"
 msgstr ""
 
-#: wp-serverinfo.php:493
+#: wp-serverinfo.php:512
 msgid "Memory Limit"
 msgstr ""
 
-#: wp-serverinfo.php:494
+#: wp-serverinfo.php:513
 msgid "Max Upload Size"
 msgstr ""
 
-#: wp-serverinfo.php:499
+#: wp-serverinfo.php:518
 msgid "Maximum No. Connections"
 msgstr ""
 
-#: wp-serverinfo.php:500
+#: wp-serverinfo.php:519
 msgid "Maximum Packet Size"
 msgstr ""
 
-#: wp-serverinfo.php:501
+#: wp-serverinfo.php:520
 msgid "Data Disk Usage"
 msgstr ""
 
-#: wp-serverinfo.php:502
+#: wp-serverinfo.php:521
 msgid "Index Disk Usage"
 msgstr ""
 
