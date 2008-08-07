@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-ServerInfo 1.31\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-22 01:55+0800\n"
-"PO-Revision-Date: 2008-07-22 01:55+0800\n"
-"Last-Translator: Lester Chan <lesterchan@gmail.com>\n"
+"POT-Creation-Date: 2008-08-07 21:04+0300\n"
+"PO-Revision-Date: 2008-08-07 21:04+0300\n"
+"Last-Translator: Anna Ozeritskaya <ozeritskaya@ftad.ru>\n"
 "Language-Team: Lester Chan <lesterchan@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -181,6 +181,10 @@ msgstr ""
 
 #: wp-serverinfo.php:455
 msgid "Server Information"
+msgstr ""
+
+#: wp-serverinfo.php:480
+msgid "General"
 msgstr ""
 
 #: wp-serverinfo.php:484

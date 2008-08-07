@@ -477,7 +477,7 @@ function dashboard_serverinfo($sidebar_args) {
 	echo $before_title;
 	echo $widget_name;
 	echo $after_title;
-	echo '<p><strong>General</strong></p>';
+	echo '<p><strong>'.__('General', 'wp-serverinfo').'</strong></p>';
 	echo '<ul>';
 	echo '<li>'. __('OS', 'wp-serverinfo').': <strong>'.PHP_OS.'</strong></li>';
 	echo '<li>'. __('Server', 'wp-serverinfo').': <strong>'.$_SERVER["SERVER_SOFTWARE"].'</strong></li>';	
