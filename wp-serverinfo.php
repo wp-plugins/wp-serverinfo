@@ -222,17 +222,17 @@ function serverinfo_subnavi() {
 if(!function_exists('format_filesize')) {
 	function format_filesize($rawSize) {
 		if($rawSize / 1099511627776 > 1) {
-			return round($rawSize/1099511627776, 1).' '.__('TiB', 'wp-serverinfo');
+			return sprintf('%.1f', ($rawSize/1099511627776)).' '.__('TiB', 'wp-downloadmanager');
 		} elseif($rawSize / 1073741824 > 1) {
-			return round($rawSize/1073741824, 1).' '.__('GiB', 'wp-serverinfo');
+			return sprintf('%.1f', ($rawSize/1073741824)).' '.__('GiB', 'wp-downloadmanager');
 		} elseif($rawSize / 1048576 > 1) {
-			return round($rawSize/1048576, 1).' '.__('MiB', 'wp-serverinfo');
+			return sprintf('%.1f', ($rawSize/1048576)).' '.__('MiB', 'wp-downloadmanager');
 		} elseif($rawSize / 1024 > 1) {
-			return round($rawSize/1024, 1).' '.__('KiB', 'wp-serverinfo');
+			return sprintf('%.1f', ($rawSize/1024)).' '.__('KiB', 'wp-downloadmanager');
 		} elseif($rawSize > 1) {
-			return round($rawSize, 1).' '.__('bytes', 'wp-serverinfo');
+			return sprintf('%.1f', ($rawSize)).' '.__('bytes', 'wp-downloadmanager');
 		} else {
-			return __('unknown', 'wp-serverinfo');
+			return __('unknown', 'wp-downloadmanager');
 		}
 	}
 }
