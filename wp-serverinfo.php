@@ -65,8 +65,22 @@ function display_serverinfo() {
 
 ### Get General Information
 function get_generalinfo() {
+  global $text_direction;
+  if('rtl' == $text_direction) : ?>
+    <style type="text/css">
+      #GeneralOverview table, 
+      #GeneralOverview th,
+      #GeneralOverview td {
+        direction: ltr;
+        text-align: left;
+      }
+      #GeneralOverview h2 {
+        padding: 0.5em 0 0;
+      }
+    </style>
+  <?php endif;
 ?>
-	<div class="wrap" id="GeneralOverview">
+	<div class="wrap" id="GeneralOverview" lang="en-US">
 		<h2><?php _e('General Overview','wp-serverinfo'); ?></h2>
 		<br class="clear" />
 		<table class="widefat">
@@ -125,23 +139,23 @@ function get_generalinfo() {
 					<td><?php _e('Server Document Root','wp-serverinfo'); ?></td>
 					<td><?php echo $_SERVER['DOCUMENT_ROOT']; ?></td>
 					<td><?php _e('PHP Memory Limit', 'wp-serverinfo'); ?></td>
-					<td><?php echo get_php_memory_limit(); ?></td>
+					<td><?php echo format_php_size(get_php_memory_limit()); ?></td>
 				</tr>
 				<tr>
 					<td><?php _e('Server Admin', 'wp-serverinfo'); ?></td>
 					<td><?php echo $_SERVER['SERVER_ADMIN']; ?></td>
 					<td><?php _e('PHP Max Upload Size', 'wp-serverinfo'); ?></td>
-					<td><?php echo get_php_upload_max(); ?></td>
+					<td><?php echo format_php_size(get_php_upload_max()); ?></td>
 				</tr>
 				<tr class="alternate">
 					<td><?php _e('Server Load', 'wp-serverinfo'); ?></td>
 					<td><?php echo get_ServerLoad(); ?></td>
 					<td><?php _e('PHP Max Post Size', 'wp-serverinfo'); ?></td>
-					<td><?php echo get_php_post_max(); ?></td>
+					<td><?php echo format_php_size(get_php_post_max()); ?></td>
 				</tr>
 				<tr>
 					<td><?php _e('Server Date/Time', 'wp-serverinfo'); ?></td>
-					<td><?php echo date(sprintf(__('%s @ %s', 'wp-serverinfo'), get_option('date_format'), get_option('time_format'))); ?></td>
+					<td><?php echo date_i18n(sprintf(__('%s @ %s', 'wp-serverinfo'), get_option('date_format'), get_option('time_format')), current_time('timestamp')); ?></td>
 					<td><?php _e('PHP Max Script Execute Time', 'wp-serverinfo'); ?></td>
 					<td><?php echo get_php_max_execution(); ?>s</td>
 				</tr>
@@ -154,6 +168,7 @@ function get_generalinfo() {
 
 ### Get PHP Information
 function get_phpinfo() {
+  global $text_direction;
 	ob_start();
 	phpinfo();
 	$phpinfo = ob_get_contents();
@@ -182,7 +197,21 @@ function get_phpinfo() {
 	$phpinfo = str_replace("Configuration\nPHP Core", '<br /><h2>PHP Core Configuration</h2>', $phpinfo);
 	// Make Mouse Over Effect
 	$phpinfo = str_replace('<tr>', '<tr onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'">', $phpinfo);
-	echo '<div class="wrap" id="PHPinfo" style="display: none;">'."\n";
+  if('rtl' == $text_direction) : ?>
+    <style type="text/css">
+      #PHPinfo, 
+      #PHPinfo table, 
+      #PHPinfo th,
+      #PHPinfo td {
+        direction: ltr;
+        text-align: left; 
+      }
+      #PHPinfo h2 {
+        padding: 0.5em 0 0;
+      }
+    </style>
+  <?php endif;
+	echo '<div class="wrap" id="PHPinfo" style="display: none;" lang="en-US">'."\n";
 	echo $phpinfo;
 	echo '</div>'."\n";
 }
@@ -190,14 +219,28 @@ function get_phpinfo() {
 
 ### Get MYSQL Information
 function get_mysqlinfo() {
-	global $wpdb;
+	global $wpdb, $text_direction;
 	$sqlversion = $wpdb->get_var("SELECT VERSION() AS version");
 	$mysqlinfo = $wpdb->get_results("SHOW VARIABLES");
-	echo '<div class="wrap" id="MYSQLinfo" style="display: none;">'."\n";
+  if('rtl' == $text_direction) : ?>
+    <style type="text/css">
+      #MYSQLinfo, 
+      #MYSQLinfo table, 
+      #MYSQLinfo th,
+      #MYSQLinfo td {
+        direction: ltr;
+        text-align: left; 
+      }
+      #MYSQLinfo h2 {
+        padding: 0.5em 0 0;
+      }
+    </style>
+  <?php endif;
+	echo '<div class="wrap" id="MYSQLinfo" style="display: none;" lang="en-US">'."\n";
 	echo "<h2>MYSQL $sqlversion</h2>\n";	
 	if($mysqlinfo) {
 		echo '<br class="clear" />'."\n";	
-		echo '<table class="widefat">'."\n";
+		echo '<table class="widefat" dir="ltr" lang="en-US">'."\n";
 		echo '<thead><tr><th>'.__('Variable Name', 'wp-serverinfo').'</th><th>'.__('Value', 'wp-serverinfo').'</th></tr></thead><tbody>'."\n";
 		foreach($mysqlinfo as $info) {
 			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>'.$info->Variable_name.'</td><td>'.htmlspecialchars($info->Value).'</td></tr>'."\n";
@@ -222,21 +265,34 @@ function serverinfo_subnavi() {
 if(!function_exists('format_filesize')) {
 	function format_filesize($rawSize) {
 		if($rawSize / 1099511627776 > 1) {
-			return sprintf('%.1f', ($rawSize/1099511627776)).' '.__('TiB', 'wp-downloadmanager');
+			return number_format_i18n($rawSize/1099511627776, 1).' '.__('TiB', 'wp-serverinfo');
 		} elseif($rawSize / 1073741824 > 1) {
-			return sprintf('%.1f', ($rawSize/1073741824)).' '.__('GiB', 'wp-downloadmanager');
+			return number_format_i18n($rawSize/1073741824, 1).' '.__('GiB', 'wp-serverinfo');
 		} elseif($rawSize / 1048576 > 1) {
-			return sprintf('%.1f', ($rawSize/1048576)).' '.__('MiB', 'wp-downloadmanager');
+			return number_format_i18n($rawSize/1048576, 1).' '.__('MiB', 'wp-serverinfo');
 		} elseif($rawSize / 1024 > 1) {
-			return sprintf('%.1f', ($rawSize/1024)).' '.__('KiB', 'wp-downloadmanager');
+			return number_format_i18n($rawSize/1024, 1).' '.__('KiB', 'wp-serverinfo');
 		} elseif($rawSize > 1) {
-			return sprintf('%.1f', ($rawSize)).' '.__('bytes', 'wp-downloadmanager');
+			return number_format_i18n($rawSize, 0).' '.__('bytes', 'wp-serverinfo');
 		} else {
-			return __('unknown', 'wp-downloadmanager');
+			return __('unknown', 'wp-serverinfo');
 		}
 	}
 }
 
+### Function: Convert PHP Size Format to Localized
+function format_php_size($size) {
+  if (!is_numeric($size)) {
+    if (strpos($size, 'M') !== false) {
+      $size = intval($size)*1024*1024;
+    } elseif (strpos($size, 'K') !== false) {
+      $size = intval($size)*1024;
+    } elseif (strpos($size, 'G') !== false) {
+      $size = intval($size)*1024*1024*1024;
+    }
+  }
+  return is_numeric($size) ? format_filesize($size) : $size;
+}
 
 ### Function: Get PHP Short Tag
 if(!function_exists('get_php_short_tag')) {
@@ -496,7 +552,7 @@ function dashboard_serverinfo($sidebar_args) {
 	echo '<p><strong>MYSQL</strong></p>';
 	echo '<ul>';
 	echo '<li>v<strong>'.get_mysql_version().'</strong></li>';
-	echo '<li>'. __('Maximum No. Connections', 'wp-serverinfo').': <strong>'.number_format_i18n(get_mysql_max_allowed_connections()).'</strong></li>';	
+	echo '<li>'. __('Maximum No. Connections', 'wp-serverinfo').': <strong>'.number_format(get_mysql_max_allowed_connections(), 0).'</strong></li>';	
 	echo '<li>'. __('Maximum Packet Size', 'wp-serverinfo').': <strong>'.format_filesize(get_mysql_max_allowed_packet()).'</strong></li>';
 	echo '<li>'. __('Data Disk Usage', 'wp-serverinfo').': <strong>'.format_filesize(get_mysql_data_usage()).'</strong></li>';
 	echo '<li>'. __('Index Disk Usage', 'wp-serverinfo').': <strong>'.format_filesize(get_mysql_index_usage()).'</strong></li>';
