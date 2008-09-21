@@ -65,20 +65,20 @@ function display_serverinfo() {
 
 ### Get General Information
 function get_generalinfo() {
-  global $text_direction;
-  if('rtl' == $text_direction) : ?>
-    <style type="text/css">
-      #GeneralOverview table, 
-      #GeneralOverview th,
-      #GeneralOverview td {
-        direction: ltr;
-        text-align: left;
-      }
-      #GeneralOverview h2 {
-        padding: 0.5em 0 0;
-      }
-    </style>
-  <?php endif;
+	global $text_direction;
+	if('rtl' == $text_direction) : ?>
+		<style type="text/css">
+			#GeneralOverview table, 
+			#GeneralOverview th,
+			#GeneralOverview td {
+				direction: ltr;
+				text-align: left;
+			}
+			#GeneralOverview h2 {
+				padding: 0.5em 0 0;
+			}
+		</style>
+	<?php endif;
 ?>
 	<div class="wrap" id="GeneralOverview" lang="en-US">
 		<h2><?php _e('General Overview','wp-serverinfo'); ?></h2>
@@ -168,7 +168,7 @@ function get_generalinfo() {
 
 ### Get PHP Information
 function get_phpinfo() {
-  global $text_direction;
+	global $text_direction;
 	ob_start();
 	phpinfo();
 	$phpinfo = ob_get_contents();
@@ -197,20 +197,20 @@ function get_phpinfo() {
 	$phpinfo = str_replace("Configuration\nPHP Core", '<br /><h2>PHP Core Configuration</h2>', $phpinfo);
 	// Make Mouse Over Effect
 	$phpinfo = str_replace('<tr>', '<tr onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'">', $phpinfo);
-  if('rtl' == $text_direction) : ?>
-    <style type="text/css">
-      #PHPinfo, 
-      #PHPinfo table, 
-      #PHPinfo th,
-      #PHPinfo td {
-        direction: ltr;
-        text-align: left; 
-      }
-      #PHPinfo h2 {
-        padding: 0.5em 0 0;
-      }
-    </style>
-  <?php endif;
+	if('rtl' == $text_direction) : ?>
+		<style type="text/css">
+			#PHPinfo, 
+			#PHPinfo table, 
+			#PHPinfo th,
+			#PHPinfo td {
+				direction: ltr;
+				text-align: left; 
+			}
+			#PHPinfo h2 {
+				padding: 0.5em 0 0;
+			}
+		</style>
+	<?php endif;
 	echo '<div class="wrap" id="PHPinfo" style="display: none;" lang="en-US">'."\n";
 	echo $phpinfo;
 	echo '</div>'."\n";
@@ -222,20 +222,20 @@ function get_mysqlinfo() {
 	global $wpdb, $text_direction;
 	$sqlversion = $wpdb->get_var("SELECT VERSION() AS version");
 	$mysqlinfo = $wpdb->get_results("SHOW VARIABLES");
-  if('rtl' == $text_direction) : ?>
-    <style type="text/css">
-      #MYSQLinfo, 
-      #MYSQLinfo table, 
-      #MYSQLinfo th,
-      #MYSQLinfo td {
-        direction: ltr;
-        text-align: left; 
-      }
-      #MYSQLinfo h2 {
-        padding: 0.5em 0 0;
-      }
-    </style>
-  <?php endif;
+	if('rtl' == $text_direction) : ?>
+		<style type="text/css">
+			#MYSQLinfo, 
+			#MYSQLinfo table, 
+			#MYSQLinfo th,
+			#MYSQLinfo td {
+				direction: ltr;
+				text-align: left; 
+			}
+			#MYSQLinfo h2 {
+				padding: 0.5em 0 0;
+			}
+		</style>
+	<?php endif;
 	echo '<div class="wrap" id="MYSQLinfo" style="display: none;" lang="en-US">'."\n";
 	echo "<h2>MYSQL $sqlversion</h2>\n";	
 	if($mysqlinfo) {
@@ -282,16 +282,16 @@ if(!function_exists('format_filesize')) {
 
 ### Function: Convert PHP Size Format to Localized
 function format_php_size($size) {
-  if (!is_numeric($size)) {
-    if (strpos($size, 'M') !== false) {
-      $size = intval($size)*1024*1024;
-    } elseif (strpos($size, 'K') !== false) {
-      $size = intval($size)*1024;
-    } elseif (strpos($size, 'G') !== false) {
-      $size = intval($size)*1024*1024*1024;
-    }
-  }
-  return is_numeric($size) ? format_filesize($size) : $size;
+	if (!is_numeric($size)) {
+		if (strpos($size, 'M') !== false) {
+			$size = intval($size)*1024*1024;
+		} elseif (strpos($size, 'K') !== false) {
+			$size = intval($size)*1024;
+		} elseif (strpos($size, 'G') !== false) {
+			$size = intval($size)*1024*1024*1024;
+		}
+	}
+	return is_numeric($size) ? format_filesize($size) : $size;
 }
 
 ### Function: Get PHP Short Tag
@@ -527,12 +527,16 @@ function serverinfo_add_dashboard_widget($widgets) {
 
 ### Function: Print ServerInfo Dashboard Widget
 function dashboard_serverinfo($sidebar_args) {
-	global $wpdb;
+	global $wpdb, $text_direction;
 	extract($sidebar_args, EXTR_SKIP);
 	echo $before_widget;
 	echo $before_title;
 	echo $widget_name;
 	echo $after_title;
+	if('rtl' == $text_direction) {
+		echo '<style type="text/css"> #wp-serverinfo ul { padding-left: 15px !important; } </style>';
+		echo '<div id="wp-serverinfo" style="direction: ltr; text-align: left;">';
+	}
 	echo '<p><strong>'.__('General', 'wp-serverinfo').'</strong></p>';
 	echo '<ul>';
 	echo '<li>'. __('OS', 'wp-serverinfo').': <strong>'.PHP_OS.'</strong></li>';
@@ -546,17 +550,20 @@ function dashboard_serverinfo($sidebar_args) {
 	echo '<li>v<strong>'.PHP_VERSION.'</strong></li>';
 	echo '<li>GD: <strong>'.get_gd_version().'</strong></li>';
 	echo '<li>'. __('Magic Quotes GPC', 'wp-serverinfo').': <strong>'.get_php_magic_quotes_gpc().'</strong></li>';
-	echo '<li>'. __('Memory Limit', 'wp-serverinfo').': <strong>'.get_php_memory_limit().'</strong></li>';
-	echo '<li>'. __('Max Upload Size', 'wp-serverinfo').': <strong>'.get_php_upload_max().'</strong></li>';	
+	echo '<li>'. __('Memory Limit', 'wp-serverinfo').': <strong>'.format_php_size(get_php_memory_limit()).'</strong></li>';
+	echo '<li>'. __('Max Upload Size', 'wp-serverinfo').': <strong>'.format_php_size(get_php_upload_max()).'</strong></li>';	
 	echo '</ul>';
 	echo '<p><strong>MYSQL</strong></p>';
 	echo '<ul>';
 	echo '<li>v<strong>'.get_mysql_version().'</strong></li>';
-	echo '<li>'. __('Maximum No. Connections', 'wp-serverinfo').': <strong>'.number_format(get_mysql_max_allowed_connections(), 0).'</strong></li>';	
+	echo '<li>'. __('Maximum No. Connections', 'wp-serverinfo').': <strong>'.number_format_i18n(get_mysql_max_allowed_connections(), 0).'</strong></li>';	
 	echo '<li>'. __('Maximum Packet Size', 'wp-serverinfo').': <strong>'.format_filesize(get_mysql_max_allowed_packet()).'</strong></li>';
 	echo '<li>'. __('Data Disk Usage', 'wp-serverinfo').': <strong>'.format_filesize(get_mysql_data_usage()).'</strong></li>';
 	echo '<li>'. __('Index Disk Usage', 'wp-serverinfo').': <strong>'.format_filesize(get_mysql_index_usage()).'</strong></li>';
 	echo '</ul>';
+	if('rtl' == $text_direction) {
+		echo '</div>';
+	}
 	echo $after_widget;
 }
 ?>

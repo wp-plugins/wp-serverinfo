@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-ServerInfo 1.31\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-19 00:38+0800\n"
-"PO-Revision-Date: 2008-09-19 00:38+0800\n"
+"POT-Creation-Date: 2008-09-21 16:50+0800\n"
+"PO-Revision-Date: 2008-09-21 16:50+0800\n"
 "Last-Translator: Lester Chan <lesterchan@gmail.com>\n"
 "Language-Team: Lester Chan <lesterchan@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgid "Value"
 msgstr ""
 
 #: wp-serverinfo.php:97
-#: wp-serverinfo.php:538
+#: wp-serverinfo.php:542
 msgid "OS"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgid "Database Data Disk Usage"
 msgstr ""
 
 #: wp-serverinfo.php:103
-#: wp-serverinfo.php:539
+#: wp-serverinfo.php:543
 msgid "Server"
 msgstr ""
 
@@ -183,47 +183,47 @@ msgstr ""
 msgid "Server Information"
 msgstr ""
 
-#: wp-serverinfo.php:536
+#: wp-serverinfo.php:540
 msgid "General"
 msgstr ""
 
-#: wp-serverinfo.php:540
+#: wp-serverinfo.php:544
 msgid "Hostname"
 msgstr ""
 
-#: wp-serverinfo.php:541
+#: wp-serverinfo.php:545
 msgid "IP:Port"
 msgstr ""
 
-#: wp-serverinfo.php:542
+#: wp-serverinfo.php:546
 msgid "Document Root"
 msgstr ""
 
-#: wp-serverinfo.php:548
+#: wp-serverinfo.php:552
 msgid "Magic Quotes GPC"
 msgstr ""
 
-#: wp-serverinfo.php:549
+#: wp-serverinfo.php:553
 msgid "Memory Limit"
 msgstr ""
 
-#: wp-serverinfo.php:550
+#: wp-serverinfo.php:554
 msgid "Max Upload Size"
 msgstr ""
 
-#: wp-serverinfo.php:555
+#: wp-serverinfo.php:559
 msgid "Maximum No. Connections"
 msgstr ""
 
-#: wp-serverinfo.php:556
+#: wp-serverinfo.php:560
 msgid "Maximum Packet Size"
 msgstr ""
 
-#: wp-serverinfo.php:557
+#: wp-serverinfo.php:561
 msgid "Data Disk Usage"
 msgstr ""
 
-#: wp-serverinfo.php:558
+#: wp-serverinfo.php:562
 msgid "Index Disk Usage"
 msgstr ""
 
