@@ -526,13 +526,8 @@ function serverinfo_add_dashboard_widget($widgets) {
 
 
 ### Function: Print ServerInfo Dashboard Widget
-function dashboard_serverinfo($sidebar_args) {
+function dashboard_serverinfo() {
 	global $wpdb, $text_direction;
-	extract($sidebar_args, EXTR_SKIP);
-	echo $before_widget;
-	echo $before_title;
-	echo $widget_name;
-	echo $after_title;
 	if('rtl' == $text_direction) {
 		echo '<style type="text/css"> #wp-serverinfo ul { padding-left: 15px !important; } </style>';
 		echo '<div id="wp-serverinfo" style="direction: ltr; text-align: left;">';
@@ -564,6 +559,5 @@ function dashboard_serverinfo($sidebar_args) {
 	if('rtl' == $text_direction) {
 		echo '</div>';
 	}
-	echo $after_widget;
 }
 ?>
