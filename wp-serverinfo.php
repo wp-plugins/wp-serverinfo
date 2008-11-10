@@ -508,26 +508,14 @@ if(!function_exists('get_serverload')) {
 add_action('wp_dashboard_setup', 'serverinfo_register_dashboard_widget');
 function serverinfo_register_dashboard_widget() {
 	if(current_user_can('manage_options')) {
-		wp_register_sidebar_widget('dashboard_serverinfo', __('Server Information', 'wp-serverinfo'), 'dashboard_serverinfo', array('all_link' => 'index.php?page=wp-serverinfo/wp-serverinfo.php', 'width' => 'half', 'height' => 'single'));
+		wp_add_dashboard_widget('dashboard_serverinfo', __('Server Information', 'wp-serverinfo'), 'wp_dashboard_serverinfo');
 	}
-}
-
-
-### Function: Add ServerInfo Dashboard Widget
-add_filter('wp_dashboard_widgets', 'serverinfo_add_dashboard_widget');
-function serverinfo_add_dashboard_widget($widgets) {
-	global $wp_registered_widgets;
-	if (!isset($wp_registered_widgets['dashboard_serverinfo']) || !current_user_can('manage_options')) {
-		return $widgets;
-	}
-	array_splice($widgets, 2, 0, 'dashboard_serverinfo');
-	return $widgets;
 }
 
 
 ### Function: Print ServerInfo Dashboard Widget
-function dashboard_serverinfo() {
-	global $wpdb, $text_direction;
+function wp_dashboard_serverinfo() {
+	global $text_direction;
 	if('rtl' == $text_direction) {
 		echo '<style type="text/css"> #wp-serverinfo ul { padding-left: 15px !important; } </style>';
 		echo '<div id="wp-serverinfo" style="direction: ltr; text-align: left;">';
