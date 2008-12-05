@@ -56,7 +56,6 @@ function serverinfo_head() {
 
 ### Display WP-ServerInfo Admin Page
 function display_serverinfo() {
-	serverinfo_subnavi();
 	get_generalinfo();
 	get_phpinfo();
 	get_mysqlinfo();
@@ -80,8 +79,10 @@ function get_generalinfo() {
 		</style>
 	<?php endif;
 ?>
-	<div class="wrap" id="GeneralOverview" lang="en-US">
+	<div class="wrap" id="GeneralOverview">
+		<?php screen_icon(); ?>
 		<h2><?php _e('General Overview','wp-serverinfo'); ?></h2>
+		<?php serverinfo_subnavi(); ?>
 		<br class="clear" />
 		<table class="widefat">
 			<thead>
@@ -179,7 +180,7 @@ function get_phpinfo() {
 	$phpinfo = eregi('<table border="0" cellpadding="3" width="600">(.*)</table>', $phpinfo, $data);
 	$phpinfo = $data[0];	
 	// PHP Version Header
-	$phpinfo = preg_replace("!<table border=\"0\" cellpadding=\"3\" width=\"600\">\n<tr class=\"h\"><td>\n(.*?)\n</td></tr>\n</table>!", "<h2>$1</h2>", $phpinfo);
+	$phpinfo = preg_replace("!<table border=\"0\" cellpadding=\"3\" width=\"600\">\n<tr class=\"h\"><td>\n(.*?)\n</td></tr>\n</table>!", "<h2>$1</h2>".serverinfo_subnavi(false), $phpinfo);
 	// Normal Header
 	$phpinfo = preg_replace("!<\/table>\n(.*?)\n<table border=\"0\" cellpadding=\"3\" width=\"600\">!", "</table>\n\n<br style=\"clear\" /><h2>$1</h2>\n<table class=\"widefat\">", $phpinfo);
 	// Fixed For Credits
@@ -211,7 +212,8 @@ function get_phpinfo() {
 			}
 		</style>
 	<?php endif;
-	echo '<div class="wrap" id="PHPinfo" style="display: none;" lang="en-US">'."\n";
+	echo '<div class="wrap" id="PHPinfo" style="display: none;">'."\n";
+	screen_icon();
 	echo $phpinfo;
 	echo '</div>'."\n";
 }
@@ -236,11 +238,13 @@ function get_mysqlinfo() {
 			}
 		</style>
 	<?php endif;
-	echo '<div class="wrap" id="MYSQLinfo" style="display: none;" lang="en-US">'."\n";
-	echo "<h2>MYSQL $sqlversion</h2>\n";	
+	echo '<div class="wrap" id="MYSQLinfo" style="display: none;">'."\n";
+	screen_icon();
+	echo "<h2>MYSQL $sqlversion</h2>\n";
+	serverinfo_subnavi();
 	if($mysqlinfo) {
 		echo '<br class="clear" />'."\n";	
-		echo '<table class="widefat" dir="ltr" lang="en-US">'."\n";
+		echo '<table class="widefat" dir="ltr">'."\n";
 		echo '<thead><tr><th>'.__('Variable Name', 'wp-serverinfo').'</th><th>'.__('Value', 'wp-serverinfo').'</th></tr></thead><tbody>'."\n";
 		foreach($mysqlinfo as $info) {
 			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>'.$info->Variable_name.'</td><td>'.htmlspecialchars($info->Value).'</td></tr>'."\n";
@@ -252,12 +256,13 @@ function get_mysqlinfo() {
 
 
 ### WP-Server Sub Navigation
-function serverinfo_subnavi() {
-?>
-	<div class="wrap" style="text-align: center">
-		<a href="#DisplayGeneral" onclick="toggle_general(); return false;"><?php _e('Display General Overview', 'wp-serverinfo'); ?></a> - <a href="#DisplayPHP" onclick="toggle_php(); return false;"><?php _e('Display PHP Information', 'wp-serverinfo'); ?></a> - <a href="#DisplayMYSQL" onclick="toggle_mysql(); return false;"><?php _e('Display MYSQL Information', 'wp-serverinfo'); ?></a>
-	</div>
-<?php
+function serverinfo_subnavi($display = true) {
+	$output =  '<p style="text-align: center"><a href="#DisplayGeneral" onclick="toggle_general(); return false;">'.__('Display General Overview', 'wp-serverinfo').'</a> - <a href="#DisplayPHP" onclick="toggle_php(); return false;">'.__('Display PHP Information', 'wp-serverinfo').'</a> - <a href="#DisplayMYSQL" onclick="toggle_mysql(); return false;">'.__('Display MYSQL Information', 'wp-serverinfo').'</a></p>';
+	if($display) {
+		echo $output;
+	} else {
+		return $output;
+	}
 }
 
 
