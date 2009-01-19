@@ -44,10 +44,13 @@ function serverinfo_menu() {
 }
 
 
-### Function: ServerInfo Header
-add_action('admin_print_scripts-dashboard_page_wp-serverinfo/wp-serverinfo', 'serverinfo_footer');
-function serverinfo_footer() {
-	wp_enqueue_script('wp-serverinfo', plugins_url('wp-serverinfo/serverinfo-js.js'), array('jquery'), '1.50', true);
+### Function: Enqueue ServerInfo JavaScripts In WP-Admin
+add_action('admin_enqueue_scripts', 'serverinfo_scripts_admin');
+function serverinfo_scripts_admin($hook_suffix) {
+	$serverinfo_admin_pages = array('dashboard_page_wp-serverinfo/wp-serverinfo');
+	if(in_array($hook_suffix, $serverinfo_admin_pages)) {
+		wp_enqueue_script('wp-serverinfo', plugins_url('wp-serverinfo/serverinfo-js.js'), array('jquery'), '1.50', true);
+	}
 }
 
 
