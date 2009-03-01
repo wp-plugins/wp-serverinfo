@@ -156,7 +156,7 @@ function get_generalinfo() {
 				</tr>
 				<tr>
 					<td><?php _e('Server Date/Time', 'wp-serverinfo'); ?></td>
-					<td><?php echo date_i18n(sprintf(__('%s @ %s', 'wp-serverinfo'), get_option('date_format'), get_option('time_format')), current_time('timestamp')); ?></td>
+					<td><?php echo mysql2date(sprintf(__('%s @ %s', 'wp-postratings'), get_option('date_format'), get_option('time_format')), current_time('mysql')); ?></td>
 					<td><?php _e('PHP Max Script Execute Time', 'wp-serverinfo'); ?></td>
 					<td><?php echo get_php_max_execution(); ?>s</td>
 				</tr>
