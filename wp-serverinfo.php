@@ -3,7 +3,7 @@
 Plugin Name: WP-ServerInfo
 Plugin URI: http://lesterchan.net/portfolio/programming/php/
 Description: Display your host's server PHP and MYSQL information (integrated into WordPress Admin Style) on your WordPress dashboard.
-Version: 1.50
+Version: 1.60
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
 */
@@ -59,6 +59,7 @@ function display_serverinfo() {
 	get_generalinfo();
 	get_phpinfo();
 	get_mysqlinfo();
+	get_memcachedinfo();
 }
 
 
@@ -255,9 +256,89 @@ function get_mysqlinfo() {
 }
 
 
+### Get memcached Information (Description from https://boxpanel.blueboxgrp.com/public/the_vault/index.php/memcached_Tips)
+function get_memcachedinfo() {
+	global $text_direction;
+	echo '<div class="wrap" id="memcachedinfo" style="display: none;">'."\n";
+	if(class_exists('Memcache')) {
+		$memcached_obj = new Memcache; 
+		$memcached_obj->addServer('localhost', 11211); 
+		$memcachedinfo = $memcached_obj->getStats(); 
+		if('rtl' == $text_direction) : ?>
+			<style type="text/css">
+				#memcachedinfo, 
+				#memcachedinfo table, 
+				#memcachedinfo th,
+				#memcachedinfo td {
+					direction: ltr;
+					text-align: left; 
+				}
+				#memcachedinfo h2 {
+					padding: 0.5em 0 0;
+				}
+			</style>
+		<?php endif;
+		screen_icon();
+		echo "<h2>memcached {$memcachedinfo['version']}</h2>\n";
+		serverinfo_subnavi();
+		if($memcachedinfo) {
+			$cache_hit= (($memcachedinfo['get_hits']/$memcachedinfo['cmd_get']) * 100); 
+			$cache_hit = round($cache_hit, 2); 
+			$cache_miss = 100 - $cache_hit;
+			
+			$usage = round((($memcachedinfo['bytes']/$memcachedinfo['limit_maxbytes']) * 100), 2);
+			$uptime = number_format_i18n(($memcachedinfo['uptime']/60/60/24));
+			
+			echo '<br class="clear" />'."\n";	
+			echo '<table class="widefat" dir="ltr">'."\n";
+			echo '<thead><tr><th>'.__('Variable Name', 'wp-serverinfo').'</th><th>'.__('Value', 'wp-serverinfo').'</th><th>'.__('Description', 'wp-serverinfo').'</th></tr></thead><tbody>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>pid</td><td>'.$memcachedinfo['pid'].'</td><td>'.__('Process ID').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>uptime</td><td>'.$uptime.'</td><td>'.__('Number of days since the process was started').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>version</td><td>'.$memcachedinfo['version'].'</td><td>'.__('memcached version').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>rusage_user</td><td>'.$memcachedinfo['rusage_user'].'</td><td>'.__('Seconds the cpu has devoted to the process as the user').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>rusage_system</td><td>'.$memcachedinfo['rusage_system'].'</td><td>'.__('Seconds the cpu has devoted to the process as the system').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>curr_items</td><td>'.number_format_i18n($memcachedinfo['curr_items']).'</td><td>'.__('Total number of items currently in memcached').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>total_items</td><td>'.number_format_i18n($memcachedinfo['total_items']).'</td><td>'.__('Total number of items that have passed through memcached').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>bytes</td><td>'.format_filesize($memcachedinfo['bytes']).' ('.$usage.'%)</td><td>'.__('Memory size currently used by curr_items').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>limit_maxbytes</td><td>'.format_filesize($memcachedinfo['limit_maxbytes']).'</td><td>'.__('Maximum memory size allocated to memcached').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>curr_connections</td><td>'.number_format_i18n($memcachedinfo['curr_connections']).'</td><td>'.__('Total number of open connections to memcached').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>total_connections</td><td>'.number_format_i18n($memcachedinfo['total_connections']).'</td><td>'.__('Total number of connections opened since memcached started running').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>connection_structures</td><td>'.number_format_i18n($memcachedinfo['connection_structures']).'</td><td>'.__('Number of connection structures allocated by the server').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>cmd_get</td><td>'.number_format_i18n($memcachedinfo['cmd_get']).'</td><td>'.__('Total GET commands issued to the server').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>cmd_set</td><td>'.number_format_i18n($memcachedinfo['cmd_set']).'</td><td>'.__('Total SET commands issued to the server').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>cmd_flush</td><td>'.number_format_i18n($memcachedinfo['cmd_flush']).'</td><td>'.__('Total FLUSH commands issued to the server').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>get_hits</td><td>'.number_format_i18n($memcachedinfo['get_hits']).' ('.$cache_hit.'%)</td><td>'.__('Total number of times a GET command was able to retrieve and return data').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>get_misses</td><td>'.number_format_i18n($memcachedinfo['get_misses']).' ('.$cache_miss.'%)</td><td>'.__('Total number of times a GET command was unable to retrieve and return data').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>delete_hits</td><td>'.number_format_i18n($memcachedinfo['delete_hits']).'</td><td>'.__('Total number of times a DELETE command was able to delete data').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>delete_misses</td><td>'.number_format_i18n($memcachedinfo['delete_misses']).'</td><td>'.__('Total number of times a DELETE command was unable to delete data').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>incr_hits</td><td>'.number_format_i18n($memcachedinfo['incr_hits']).'</td><td>'.__('Total number of times a INCR command was able to increment a value').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>incr_misses</td><td>'.number_format_i18n($memcachedinfo['incr_misses']).'</td><td>'.__('Total number of times a INCR command was unable to increment a value').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>decr_hits</td><td>'.number_format_i18n($memcachedinfo['decr_hits']).'</td><td>'.__('Total number of times a DECR command was able to decrement a value').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>decr_misses</td><td>'.number_format_i18n($memcachedinfo['decr_misses']).'</td><td>'.__('Total number of times a DECR command was unable to decrement a value').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>cas_hits</td><td>'.number_format_i18n($memcachedinfo['cas_hits']).'</td><td>'.__('Total number of times a CAS command was able to compare and swap data').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>cas_misses</td><td>'.number_format_i18n($memcachedinfo['cas_misses']).'</td><td>'.__('Total number of times a CAS command was unable to compare and swap data').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>cas_badval</td><td>'.number_format_i18n($memcachedinfo['cas_badval']).'</td><td>'.__('N/A').'</td></tr>'."\n";		
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>bytes_read</td><td>'.format_filesize($memcachedinfo['bytes_read']).'</td><td>'.__('Total number of bytes input into the server').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>bytes_written</td><td>'.format_filesize($memcachedinfo['bytes_written']).'</td><td>'.__('Total number of bytes written by the server').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>evictions</td><td>'.number_format_i18n($memcachedinfo['evictions']).'</td><td>'.__('Number of valid items removed from cache to free memory for new items').'</td></tr>'."\n";
+			echo '<tr class="" onmouseover="this.className=\'highlight\'" onmouseout="this.className=\'\'"><td>reclaimed</td><td>'.number_format_i18n($memcachedinfo['reclaimed']).'</td><td>'.__('Number of items reclaimed').'</td></tr>'."\n";
+			echo '</tbody></table>'."\n";
+		}
+	}
+	echo '</div>'."\n";
+}
+
+
 ### WP-Server Sub Navigation
 function serverinfo_subnavi($display = true) {
-	$output =  '<p style="text-align: center"><a href="#DisplayGeneral" onclick="toggle_general(); return false;">'.__('Display General Overview', 'wp-serverinfo').'</a> - <a href="#DisplayPHP" onclick="toggle_php(); return false;">'.__('Display PHP Information', 'wp-serverinfo').'</a> - <a href="#DisplayMYSQL" onclick="toggle_mysql(); return false;">'.__('Display MYSQL Information', 'wp-serverinfo').'</a></p>';
+	$output = '<p style="text-align: center">';
+	$output .= '<a href="#DisplayGeneral" onclick="toggle_general(); return false;">'.__('Display General Overview', 'wp-serverinfo').'</a>';
+	$output .= ' - <a href="#DisplayPHP" onclick="toggle_php(); return false;">'.__('Display PHP Information', 'wp-serverinfo').'</a>';
+	$output .= ' - <a href="#DisplayMYSQL" onclick="toggle_mysql(); return false;">'.__('Display MYSQL Information', 'wp-serverinfo').'</a>';
+	if(class_exists('Memcache')) {
+		$output .= ' - <a href="#Displaymemcached" onclick="toggle_memcached(); return false;">'.__('Display memcached Information', 'wp-serverinfo').'</a>';
+	}
+	$output .= '</p>';
 	if($display) {
 		echo $output;
 	} else {
