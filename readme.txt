@@ -74,12 +74,15 @@ Display your host's server PHP and MYSQL information (integrated into WordPress 
 3. Activate `WP-ServerInfo` Plugin
 4. Go to `WP-Admin -> Dashboard -> WP-ServerInfo`
 
-== Upgrade Notice ==
-
+== Upgrading ==
 1. Deactivate `WP-ServerInfo` Plugin
 2. Open `wp-content/plugins` Folder
-3. Put/Overwrite: `Folder: wp-serverinfo`</blockquote>
+3. Put/Overwrite: `Folder: wp-serverinfo`
 4. Activate `WP-ServerInfo` Plugin
+
+== Upgrade Notice ==
+
+N/A
 
 == Screenshots ==
 
