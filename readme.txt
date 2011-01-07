@@ -6,7 +6,7 @@ Requires at least: 2.8
 Tested up to: 3.0.4
 Stable tag: trunk
 
-Display your host's server PHP and MYSQL information (integrated into WordPress Admin Style) on your WordPress dashboard.
+Display your host's PHP, MYSQL & memcached (if installed) information on your WordPress dashboard.
 
 == Description ==
 
@@ -75,6 +75,7 @@ Display your host's server PHP and MYSQL information (integrated into WordPress 
 4. Go to `WP-Admin -> Dashboard -> WP-ServerInfo`
 
 == Upgrading ==
+
 1. Deactivate `WP-ServerInfo` Plugin
 2. Open `wp-content/plugins` Folder
 3. Put/Overwrite: `Folder: wp-serverinfo`
