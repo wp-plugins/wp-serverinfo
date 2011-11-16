@@ -65,7 +65,7 @@ function display_serverinfo() {
 
 ### Get General Information
 function get_generalinfo() {
-	global $text_direction;
+	global $text_direction, $is_IIS;
 	if('rtl' == $text_direction) : ?>
 		<style type="text/css">
 			#GeneralOverview table, 
@@ -133,7 +133,7 @@ function get_generalinfo() {
 				</tr>
 				<tr>
 					<td><?php _e('Server IP:Port','wp-serverinfo'); ?></td>
-					<td><?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?></td>
+					<td><?php echo ($is_IIS ? $_SERVER['LOCAL_ADDR'] : $_SERVER['SERVER_ADDR']); ?>:<?php echo $_SERVER['SERVER_PORT']; ?></td>
 					<td><?php _e('PHP Magic Quotes GPC', 'wp-serverinfo'); ?></td>
 					<td><?php echo get_php_magic_quotes_gpc(); ?></td>
 				</tr>
