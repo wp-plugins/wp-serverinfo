@@ -39,7 +39,7 @@ function serverinfo_textdomain() {
 add_action('admin_menu', 'serverinfo_menu');
 function serverinfo_menu() {
 	if (function_exists('add_submenu_page')) {
-		add_submenu_page('index.php',  __('WP-ServerInfo', 'wp-serverinfo'),  __('WP-ServerInfo', 'wp-serverinfo'), 1, 'wp-serverinfo/wp-serverinfo.php', 'display_serverinfo');
+		add_submenu_page('index.php',  __('WP-ServerInfo', 'wp-serverinfo'),  __('WP-ServerInfo', 'wp-serverinfo'), 'add_users', 'wp-serverinfo/wp-serverinfo.php', 'display_serverinfo');
 	}
 }
 
@@ -484,6 +484,7 @@ if(!function_exists('get_mysql_version')) {
 if(!function_exists('get_mysql_data_usage')) {
 	function get_mysql_data_usage() {
 		global $wpdb;
+		$data_usage = '';
 		$tablesstatus = $wpdb->get_results("SHOW TABLE STATUS");
 		foreach($tablesstatus as  $tablestatus) {
 			$data_usage += $tablestatus->Data_length;
@@ -499,7 +500,8 @@ if(!function_exists('get_mysql_data_usage')) {
 ### Function: Get MYSQL Index Usage
 if(!function_exists('get_mysql_index_usage')) {
 	function get_mysql_index_usage() {
-		global $wpdb;		
+		global $wpdb;
+		$index_usage = '';
 		$tablesstatus = $wpdb->get_results("SHOW TABLE STATUS");
 		foreach($tablesstatus as  $tablestatus) {
 			$index_usage +=  $tablestatus->Index_length;
