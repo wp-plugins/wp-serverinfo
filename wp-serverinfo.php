@@ -6,6 +6,7 @@ Description: Display your host's PHP, MYSQL & memcached (if installed) informati
 Version: 1.60
 Author: Lester 'GaMerZ' Chan
 Author URI: http://lesterchan.net
+Text Domain: wp-serverinfo
 */
 
 
